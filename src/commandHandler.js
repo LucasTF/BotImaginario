@@ -8,7 +8,7 @@ const command = (msg, args) => {
         case 'ajuda':
             const commandaListEmbed = new Discord.RichEmbed()
             .setTitle("Lista de comandos")
-            .setDescription("!ajuda\n!test\n!listanegra\n!about\n!block\n!regin\n!joel\n!guilhermes\n!hmmkkbjs\n!random\n!thanos");
+            .setDescription("!ajuda\n!test\n!listanegra\n!about\n!block\n!regin\n!joel\n!guilhermes\n!hmmkkbjs\n!random\n!padoru\n!thanos");
             msg.channel.send(commandaListEmbed);
             break;
         case 'test':
@@ -43,6 +43,9 @@ const command = (msg, args) => {
             break;
         case 'block':
             msg.channel.send({files: ["./src/img/block.png"]});
+            break;
+        case 'padoru':
+            msg.channel.send({files: ["./src/img/padoru.png"]});
             break;
         case 'thanos':
             msg.channel.send({files: ["./src/img/thanos.gif"]});
