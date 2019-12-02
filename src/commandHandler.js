@@ -1,74 +1,52 @@
-const Discord = require('discord.js');
-const fs = require('fs');
-
-const bot  = require('./json/bot_info.json');
-
-const command = (msg, args) => {
+const command = (client, msg, args) => {
     switch(args[0]){
         case 'ajuda':
-            const commandaListEmbed = new Discord.RichEmbed()
-            .setTitle("Lista de comandos")
-            .setDescription("!ajuda\n!test\n!listanegra\n!about\n!block\n!regin\n!joel\n!guilhermes\n!hmmkkbjs\n!random\n!padoru\n!thanos");
-            msg.channel.send(commandaListEmbed);
-            break;
-        case 'test':
-            if(args.length >= 2) msg.channel.send(`${msg.author} disse: **${args[1]}**`);
-            else msg.channel.send("Hello World!");
+            client.commands.get('ajuda').execute(msg, args);
             break;
         case 'listanegra':
-            const blackListEmbed = new Discord.RichEmbed().setTitle("Status");
-            let user = msg.mentions.users.first();
-            if(!user) user = msg.author;
-            blackListEmbed.setThumbnail(user.avatarURL);
-            const userHandler = require('./userHandler.js');
-            const isUserBlackListed = userHandler(user.username, user.discriminator);
-            if(!isUserBlackListed){
-                blackListEmbed.setDescription(`${user.username} não está na lista negra.`);
-                blackListEmbed.setColor('#27ae60');
-            } 
-            else{
-                blackListEmbed.setDescription(`${user.username} está na lista negra.`);
-                blackListEmbed.setColor('#c0392b');
-            }
-            msg.author.send(blackListEmbed);
+            client.commands.get('listanegra').execute(msg, args);
             break;
-        case 'about':
-            const botEmbed = new Discord.RichEmbed()
-            .setTitle("Sobre o bot")
-            .addField("Nome", bot.name, true)
-            .addField("Versão", bot.version, true)
-            .addField("Autor", bot.author, true)
-            .setColor('#f1c40f');
-            msg.channel.send(botEmbed);
+        case 'sobre':
+            client.commands.get('sobre').execute(client, msg);
             break;
         case 'block':
-            msg.channel.send({files: ["./src/img/block.png"]});
+            client.commands.get('localimage').execute(msg, "./src/img/block.png");
             break;
         case 'padoru':
-            msg.channel.send({files: ["./src/img/padoru.png"]});
+            client.commands.get('localimage').execute(msg, "./src/img/padoru.png");
             break;
         case 'thanos':
-            msg.channel.send({files: ["./src/img/thanos.gif"]});
+            client.commands.get('localimage').execute(msg, "./src/img/thanos.gif");
             break;
         case 'regin':
         case 'joel':
         case 'guilhermes':
+        case 'acre':
+        case 'akuma':
         case 'hmmkkbjs':
         case 'random':
-            const dir = `./src/img/prints/${args[0]}`;
-            fs.readdir(dir, (err, files) => {
-                if(!err){
-                    const rand = Math.floor(Math.random() * files.length) + 1;
-                    if(rand < 10) msg.channel.send({files: [`${dir}/0${rand}.png`]});
-                    else msg.channel.send({files: [`${dir}/${rand}.png`]});
-                }
-                else{
-                    console.log(err);
-                }
-            });
+            client.commands.get('print').execute(msg, args, 'png');
+            break;
+        case 'alves':
+            client.commands.get('print').execute(msg, args, 'jpg');
+            break;
+        case 'alvesgif':
+            client.commands.get('print').execute(msg, args, 'gif');
+            break;
+        case 'atividade':
+            client.commands.get('atividade').execute(client, msg, args);
+            break;
+        case 'cooldown':
+            client.commands.get('cooldown').execute(msg, args);
             break;
         case 'debug':
             // For debug purposes
+            if(msg.author.username === 'ProLukka' && msg.author.discriminator == '1584'){
+                client.commands.get('debug').execute(msg, args);
+            }
+            break;
+        default:
+            client.commands.get('unknown').execute(msg);
             break;
     }
 }

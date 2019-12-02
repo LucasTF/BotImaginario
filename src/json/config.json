@@ -1,0 +1,8 @@
+{
+    "cmd_prefix":"!",
+    "silent_mode":true,
+    "cooldown":{
+        "time":15,
+        "global":false
+    }
+}
