@@ -9,7 +9,7 @@ module.exports = {
             .setTitle("Lista de comandos")
             .addField("Utilitários", "!ajuda\n!sobre", true)
             .addField("Prints", "!akuma\n!guilhermes\n!hmmkkbjs\n!joel\n!random\n!regin", true)
-            .addField("Outros", "!acre\n!alves\n!alvesgif\n!block\n!padoru\n!thanos", true)
+            .addField("Outros", "!acre\n!alves\n!alvesgif\n!block\n!padoru\n!shelter\n!thanos", true)
             .addField("Moderadores", "!atividade\n!listanegra", true)
             .addField("ADM", "!cooldown", true)
             .setFooter("!ajuda <nome do comando> para mais informações.");

@@ -18,6 +18,9 @@ const command = (client, msg, args) => {
         case 'thanos':
             client.commands.get('localimage').execute(msg, "./src/img/thanos.gif");
             break;
+        case 'shelter':
+            client.commands.get('localimage').execute(msg, "./src/img/shelter.png");
+            break;
         case 'regin':
         case 'joel':
         case 'guilhermes':
