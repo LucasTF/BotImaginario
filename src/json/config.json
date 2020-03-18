@@ -2,7 +2,7 @@
     "cmd_prefix":"!",
     "silent_mode":true,
     "cooldown":{
-        "time":15,
+        "time":20,
         "global":false
     }
 }

@@ -1,0 +1,21 @@
+[
+    {
+        "server_id": "668963754318495744",
+        "server_name": "Bot Test",
+        "config": {
+            "channel": "668963754318495750",
+            "enabled_channels": ["668963754318495750", "681190655812173939"],
+            "cmd_prefix": "!",
+            "silent_mode": true,
+            "cooldown": {
+                "time": 5,
+                "global": false,
+                "immune_roles": ["679783237622562915"],
+                "cooling": [],
+                "can_talk": true
+            },
+            "mute": { "mute_role": "", "time": 360 }
+        },
+        "blacklist": []
+    }
+]
