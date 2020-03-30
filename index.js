@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const fs = require('fs');
 const { findServer } = require('./src/handlers/serverHandler.js');
+const executeCmd = require('./src/handlers/commandHandler');
 
 const {
     validateBlackList,
@@ -45,8 +46,7 @@ client.on('message', msg => {
                     .substring(server.config.cmd_prefix.length)
                     .split(' ');
                 if (args) {
-                    const executeCmd = require('./src/handlers/commandHandler.js');
-                    executeCmd(client, msg, args);
+                    executeCmd({ client: client, msg: msg, args: args });
                     let isImmune = true;
                     if (server.config.cooldown.immune_roles.length !== 0) {
                         const foundRole = server.config.cooldown.immune_roles.find(

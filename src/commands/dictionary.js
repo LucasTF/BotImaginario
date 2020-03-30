@@ -8,7 +8,7 @@ module.exports = {
     name: 'dictionary',
     description: 'Manage the dictionary.',
     roles: [Roles.ADMINISTRATOR, Roles.DEVELOPER],
-    execute(msg, args) {
+    execute({ msg, args }) {
         msg.delete().catch(console.error);
         if (args[1] && args[2]) {
             dictionary.push({ portuguese: args[1], guilhermese: args[2] });

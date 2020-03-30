@@ -1,5 +1,7 @@
 const Roles = require('../utils/roles');
 
+const images = require('../json/imageDictionary.json');
+
 module.exports = {
     name: 'localimage',
     description: 'Posta uma imagem guardada localmente',
@@ -9,7 +11,8 @@ module.exports = {
         Roles.DEVELOPER,
         Roles.SERVER_BOOSTER,
     ],
-    execute(msg, image) {
-        msg.channel.send({ files: [image] });
+    execute({ msg, args }) {
+        const dir = './src/img';
+        msg.channel.send({ files: [`${dir}/${images[args[0]]}`] });
     },
 };

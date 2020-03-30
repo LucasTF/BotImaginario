@@ -3,7 +3,7 @@ const { RichEmbed } = require('discord.js');
 module.exports = {
     name: 'ajuda',
     description: 'Mostra todos os comandos disponibilizados pelo bot',
-    execute(msg, args) {
+    execute({ msg, args }) {
         if (!args[1]) {
             const commandaListEmbed = new RichEmbed()
                 .setTitle('Lista de comandos')

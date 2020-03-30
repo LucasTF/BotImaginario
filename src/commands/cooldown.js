@@ -6,14 +6,14 @@ module.exports = {
     name: 'cooldown',
     description: 'Altera o tempo de cooldown e se ele é global ou por usuário.',
     roles: [Roles.ADMINISTRATOR, Roles.DEVELOPER],
-    execute(msg, args) {
+    execute({ msg, args }) {
         if (
             args[1] &&
             !isNaN(args[1]) &&
-                isFinite(args[1]) &&
-                args[1] % 1 === 0 &&
-                args[1] >= 0 &&
-                args[1] <= 300
+            isFinite(args[1]) &&
+            args[1] % 1 === 0 &&
+            args[1] >= 0 &&
+            args[1] <= 300
         ) {
             if (args[2]) {
                 let global;

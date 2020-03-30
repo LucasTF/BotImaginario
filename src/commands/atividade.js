@@ -9,7 +9,7 @@ module.exports = {
         Roles.MODERATOR,
         Roles.SERVER_BOOSTER,
     ],
-    execute(client, msg, args) {
+    execute({ client, msg, args }) {
         msg.delete(100).catch(console.error);
         if (args[1] && args[2]) {
             let text = args.slice(2);

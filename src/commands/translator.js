@@ -5,7 +5,7 @@ const dictionary = require('../json/dictionary.json');
 module.exports = {
     name: 'translator',
     description: 'Tradutor Português/Guilhermês',
-    execute(msg) {
+    execute({ msg }) {
         const portuguese = [];
         const guilhermese = [];
         const dictEmbed = new RichEmbed().setTitle(

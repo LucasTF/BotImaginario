@@ -7,7 +7,7 @@ module.exports = {
     name: 'listanegra',
     description: 'Mostra se um usuário está na lista negra',
     roles: [Roles.ADMINISTRATOR, Roles.MODERATOR, Roles.DEVELOPER],
-    execute(msg, args) {
+    execute({ msg, args }) {
         const user = msg.mentions.users.first();
         if (args[1] === 'add') {
             let member = msg.mentions.members.first();
